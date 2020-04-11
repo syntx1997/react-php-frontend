@@ -32,7 +32,7 @@ class App extends Component {
       token: token
     }
 
-    Axios.post('https://stevencham.com/react/api/check-token', qs.stringify(params))
+    Axios.post('https://your-backend-link/react/api/check-token', qs.stringify(params))
     .then(resp => {
       if(resp.data.valid === true) {
         this.setState({
@@ -49,7 +49,7 @@ class App extends Component {
       password: password
     }
 
-    Axios.post('https://stevencham.com/react/api/login-user', qs.stringify(params))
+    Axios.post('https://your-backend-link/react/api/login-user', qs.stringify(params))
     .then(resp => {
         if(resp.data.logged_in === true && resp.data.token !== '') {
           localStorage.setItem('token', resp.data.token);
@@ -62,7 +62,7 @@ class App extends Component {
   }
 
   showData() {
-    Axios.get('https://stevencham.com/react/api/get-user')
+    Axios.get('https://your-backend-link/react/api/get-user')
     .then(resp => this.setState({ usersData: resp.data }));
   }
 
@@ -86,7 +86,7 @@ class App extends Component {
       email       : email
     }
 
-    Axios.post('https://stevencham.com/react/api/add-user', qs.stringify(params))
+    Axios.post('https://your-backend-link/react/api/add-user', qs.stringify(params))
     .then(resp => {
       this.showData();
     })
@@ -99,7 +99,7 @@ class App extends Component {
       id: id
     }
 
-    Axios.post('https://stevencham.com/react/api/delete-user', qs.stringify(params))
+    Axios.post('hhttps://your-backend-link/react/api/delete-user', qs.stringify(params))
     .then(resp => {
       that.showData();
     })
